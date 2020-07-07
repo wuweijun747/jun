@@ -1,0 +1,532 @@
+{
+	"info": {
+		"_postman_id": "bdf9f387-e6c9-431c-be64-dbbfeb35bcc9",
+		"name": "short_Video",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "登录",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "56dffb3c-4afc-4657-b08c-41747273c2f3",
+						"exec": [
+							"//转化为对象\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"//获取要使用的值\r",
+							"var token = jsonData.data.token;\r",
+							"//设置全局变量 存储 登录的身份验证信息 token\r",
+							"pm.globals.set(\"token\", token);\r",
+							"//打印 环境变量token的值 \r",
+							"console.log(\"token = \"+token);\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"//验证 code的值 为0 msg 的值为操作成功\r",
+							"pm.test(\"成功\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.msg).to.eql(\"操作成功\");\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"3\",\r\n    \"appID\": \"5\",\r\n    \"machine\": \"e96a4c0c60bfe888\",\r\n    \"equipmentType\": \"1\",\r\n    \"timeStamp\": \"34234353453\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}/smallVideo/login",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"smallVideo",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "推荐短视频列表",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "198cfe18-6570-4d27-ac49-8e0d952e850e",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ec2c93c0-e361-4f01-978c-5fafcb399e90",
+						"exec": [
+							"pm.test(\"成功\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.msg).to.eql(\"操作成功\");\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}/short/api/proposeVideoList",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"short",
+						"api",
+						"proposeVideoList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "观看视频记录",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "74436c77-9802-4cd2-abae-ad81f924555a",
+						"exec": [
+							"pm.test(\"成功\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.msg).to.eql(\"操作成功\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "35430114-7c44-44a0-9c02-c7567055c057",
+						"exec": [
+							"pm.globals.get(\"token\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"videoId\":10,\r\n    \"seeTime\":180,\r\n    \"timeStamp\":\"34234353453\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}/short/api/seeVideoRecord\n",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"short",
+						"api",
+						"seeVideoRecord\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "通用播放页面",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "39e2a78c-a8ce-4a7e-80cc-277dba664aba",
+						"exec": [
+							"pm.test(\"成功\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.msg).to.eql(\"操作成功\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"videoId\": 112,\r\n    \"timeStamp\": \"34234353453\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}/short/api/seeVideo",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"short",
+						"api",
+						"seeVideo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "首页关注列表",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f509bad1-67f9-4ae2-ab1b-5b421e794fc2",
+						"exec": [
+							"pm.test(\"成功\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.msg).to.eql(\"操作成功\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"appId\": 1,\r\n    \"curPage\": 1,\r\n    \"pageNum\": 5,\r\n    \"timeStamp\": \"34234353453\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}/short/api/followVideoList",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"short",
+						"api",
+						"followVideoList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "标签详情页",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tagName\": \"原创\",\r\n    \"type\": 0,\r\n    \"timeStamp\": \"34234353453\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}/short/api/tagDetails",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"short",
+						"api",
+						"tagDetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "视频详情-分享",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"videoId\": \"1\",\r\n    \"timeStamp\": \"34234353453\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}/short/api/videoDetailShare",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"short",
+						"api",
+						"videoDetailShare"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "模糊搜索",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4f0750b9-c866-42f2-a501-f1fca4384f2d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\": \"1\",\r\n    \"timeStamp\": \"34234353453\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:8088/short/api/search",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "8088",
+					"path": [
+						"short",
+						"api",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加评论",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"videoId\":0,\r\n    \"userId\": \"1034936215151599\",\r\n    \"commentText\":\"是的是的的接口和艰苦奋斗和看见不是的是的空间不大就不能没办法呢八十大寿简单快乐就立刻发送旅客机开绿灯飞机数据库发大水啊了解客户反馈进度和司法会计恒等\",\r\n    \"type\":9,\r\n    \"timeStamp\": \"34234353453\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}/short/api/addComment\n",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"short",
+						"api",
+						"addComment\n"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
