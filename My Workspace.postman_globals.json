@@ -1,0 +1,19 @@
+{
+	"id": "65631c12-6f54-441b-8acb-9e46961ebddd",
+	"values": [
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6Ijc1OTU2MWY4LTczMWItNDNjMi04MDI1LWM4ZmQ3NWYwZTE2YyJ9.9LPSeH0W3kgulG_JnoGIsCpNrgAfXzOzQBmef74bWp9BTBYwAoiwIrwJ9rSUrRll9b7OZ48zC-XHnoQSYFxnGw",
+			"enabled": true
+		},
+		{
+			"key": "ip",
+			"value": "192.168.100.113:8088",
+			"enabled": true
+		}
+	],
+	"name": "My Workspace Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2020-07-08T12:17:31.457Z",
+	"_postman_exported_using": "Postman/7.27.1"
+}
