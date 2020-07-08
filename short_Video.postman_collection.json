@@ -283,7 +283,7 @@
 						"exec": [
 							"pm.test(\"成功\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.msg).to.eql(\"操作成功\");\r",
+							"    pm.expect(jsonData.msg).to.eql(\"暂无关注！\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Status code is 200\", function () {\r",
@@ -460,7 +460,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"content\": \"1\",\r\n    \"timeStamp\": \"34234353453\"\r\n}",
+					"raw": "{\r\n    \"content\": \"c\",\r\n    \"timeStamp\": \"34234353453\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -468,12 +468,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{ip}}:8088/short/api/search",
+					"raw": "http://{{ip}}/short/api/search",
 					"protocol": "http",
 					"host": [
 						"{{ip}}"
 					],
-					"port": "8088",
 					"path": [
 						"short",
 						"api",
