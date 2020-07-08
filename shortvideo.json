@@ -1,0 +1,821 @@
+{
+	"info": {
+		"_postman_id": "f4919a8b-445d-4e13-b968-c2209df5ca69",
+		"name": "短视频",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "登录",
+			"item": [
+				{
+					"name": "登录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\": \"3\",\n    \"appID\": \"2\",\n    \"machine\": \"e96a4c0c60bfe888\",\n    \"equipmentType\": \"1\",\n    \"timeStamp\": \"34234353453\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/smallVideo/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"smallVideo",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "首页",
+			"item": [
+				{
+					"name": "推荐视频",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImQyNDNjMzRlLTBlYzItNDBiMi05NTkwLTIwMDU4MDc4ZTQ5MSJ9.Pu2oBq30PXccEzyTVat6IJOI59p3A8WfGmrl_wjap_orI8DScsve6s3-pmZwKAf4GUxs3LW1-roZW7CXS2nsfA",
+								"type": "text"
+							},
+							{
+								"key": "UseCrypt",
+								"value": "1",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/short/api/proposeVideoList",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"proposeVideoList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "观看视频记录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImRkMTY1YjBhLTU4MmQtNGMyMy1iODdhLWVkOGEzZWE0ZDBkMiJ9.7ZZj-zPIc-cdaSy6-LTaiNaoEPS2ovskjdY1HNCgWQYjOD-mhXpuVA4lPrfLlEO4RkiI8Ok4l7cvnqbdHbc57A",
+								"type": "text"
+							},
+							{
+								"key": "UseCrypt",
+								"value": "0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"videoId\": 1,\n    \"seeTime\": 23,\n    \"timeStamp\": 34234353453\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/seeVideoRecord",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"seeVideoRecord"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "首页关注列表",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImVhY2E4NzMyLWNhYjItNDI5Yy05NzMzLTIzNTIwMzQ1ZDdiNSJ9.tt_HQQ-itpkNxSbeXhcDQQ1g1jKNJkOHJEwqQVnS27mIwxVdsAISoYjNbeHxPDw6nac7JTjLA7XQ1QMrIEeHGg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"appId\": 1,\n\t\"curPage\": 1,\n\t\"pageNum\": 5,\n    \"timeStamp\": 34234353453\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/followVideoList",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"followVideoList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "通用播放页面",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjNhNmRkODhmLTJiMTktNGQxMC05ZDUwLWI1ZTMxZjY4ODAyZSJ9.JcLv8tkIkqdiEol5Z5YFT6BLpqFwaKEseSou-gUWDksCPEf_0jdnYkaaGbYOs7WQ3NXTERqKN2__ZKQnvabTSg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"videoId\": 1,\n    \"timeStamp\": 34234353453\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/seeVideo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"seeVideo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "标签详情页",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImI5NmZmZjRhLWI3ZmEtNGFkMy04MTBmLThmMzgyYWVlYTIzMCJ9.1eszy42hiSbUI4prY4yotJTBQy-V-kOuNKtpMnW1vnvSMWZJmEZy7yI6YlrvbLn9RJ6BbqpRaqe6q6VoRufIoQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"tagName\": \"原创\",\n\t\"type\": 0,\n    \"timeStamp\": 34234353453\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/tagDetails",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"tagDetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "视频详情-分享",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImI5NmZmZjRhLWI3ZmEtNGFkMy04MTBmLThmMzgyYWVlYTIzMCJ9.1eszy42hiSbUI4prY4yotJTBQy-V-kOuNKtpMnW1vnvSMWZJmEZy7yI6YlrvbLn9RJ6BbqpRaqe6q6VoRufIoQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"videoId\": \"1\",\n    \"timeStamp\": 34234353453\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/videoDetailShare",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"videoDetailShare"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "模糊搜索",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjBhMTU2N2I4LWQ5OWMtNDk5Ni1hNTUyLTlmNTBkZTNkZjVhYyJ9.IHb13mox0pqX-1wjidukpxN8-c4yF0A0C2pZa1ERfo8DJ7z5T_XUqllVtLTTHEtMjzXlq1h3S6nWTxtxaoQGDA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"content\": \"c\",\n    \"timeStamp\": 34234353453\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "搜索视频或用户",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjgyYzRlYzExLTQyY2QtNDU0ZS04Mzg2LTgxYzNjZGZhMDY2ZiJ9.fv34vks4M7pJ6tt2iXrtlM4LhAdNFioIXvrhT5bbyXFBrbhAd2fjKmmYAZfW1BsDafmqNbo5PD6qAm5URbw0aw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"content\": \"女\",\n\t\"type\": 1,\n\t\"pageNum\": 1,\n\t\"pageSize\": 5,\n    \"timeStamp\": 34234353453\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/searchVideo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"searchVideo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加评论",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjViOWI0NDE5LTIxYWEtNDExYy1hMGY3LTgxOTQ5ZTVlZjI5OCJ9.HzY3PbQQ1N471d_wb-zFXhxP0pYmY6jvWP1xudikKcbz4NFmnoUG6IpTd0JehkDNiJ36YqPdyjpVp-sRGZtv_A"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"userId\": \"103493\",\r\n        \"commentId\": \"9\",\r\n        \"commentText\": \"ccccccc\",\r\n        \"type\":2,\r\n        \"timeStamp\": 34234353453\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/videoComments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"videoComments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取视频评论",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjFkNmIwOGM2LTIyNzgtNDMwYi1iZDcxLWU3Nzg1NmU5ZDVkYiJ9.1aPiYyzYGuSca8D70JAhO-LnKp_qX1sfh7pm-8qArTc90YimpkT_0dJOTLyC5IePz7ZsWkApW81WxVMsWhuPXg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"videoId\": \"1\",\n\t\"pageNum\": \"1\",\n\t\"pageSize\": \"10\",\n    \"timeStamp\": 34234353453\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/videoComments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"videoComments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查看回复",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImE5ZTU2MDMzLWEyMTItNGEyYy04MjZlLTMzODdkZTk1ZGNmNSJ9.l9x-0G1JXzXec1omDWHF5-TbeXQZj6g4EX5lgBliJZ3eW0nQTJ_csJBL6R6bXQIDU4W0VO8ERkKfPQCBk-9Fiw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"commentId\": \"2\",\n\t\"pageNum\": \"1\",\n\t\"pageSize\": \"10\",\n    \"timeStamp\": 34234353453\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/seeReply",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"seeReply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "点赞",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjFmYjAyMmM1LWEzNmUtNDFmYS1hYWRhLTVkOThmYWY1ZjBmZSJ9.du2QTbsh5mwgBxW3xHVn4WfyZr3CaD0Tcb7HGSzK3iY6zE7fcqFGqK5-v4cE73tizakrt4pfh3QH247GJO6inA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"objectId\": \"5\",\n\t\"type\": \"2\",\n    \"timeStamp\": 34234353453\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/thumb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"thumb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "取消点赞",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImQzM2E2NThjLTk1MTYtNGFmYS05ZDA1LTk0ODU1NzcyNzUwZiJ9.ZF0j0oxwDAtm0G_8G3HQnFEZy39VsR3yMV4NPiVku7_ly8AOpipGb_gp3-HSQ5CYF3gOSPswLqBIbqoMUAG6ZA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"objectId\": \"5\",\n\t\"type\": \"2\",\n    \"timeStamp\": 34234353453\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/cancelThumb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"cancelThumb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "举报",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjFmYjAyMmM1LWEzNmUtNDFmYS1hYWRhLTVkOThmYWY1ZjBmZSJ9.du2QTbsh5mwgBxW3xHVn4WfyZr3CaD0Tcb7HGSzK3iY6zE7fcqFGqK5-v4cE73tizakrt4pfh3QH247GJO6inA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"objectId\": \"31\",\n\t\"reportReason\": \"6\",\n\t\"type\": \"4\",\n\t\"reportDescribe\": \"引起不适..\",\n    \"timeStamp\": 34234353453\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/report",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"report"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "大神排行榜",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImI4ZGZkZTAyLTI5OTEtNDZkNi1hMDg2LTRhNzRlOWJkNmUyZSJ9.Um7tXjn9pBr8HwT5MBZxdzx7mlHSNYv2jv15f2SclA-uaKT4c_pJirjggUG1lfnLPrhE8upB2Hsm46fSHC0n1Q"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\": \"4\",\n    \"timeStamp\": 34234353453\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/rankingList",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"rankingList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "热点",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjFmYjAyMmM1LWEzNmUtNDFmYS1hYWRhLTVkOThmYWY1ZjBmZSJ9.du2QTbsh5mwgBxW3xHVn4WfyZr3CaD0Tcb7HGSzK3iY6zE7fcqFGqK5-v4cE73tizakrt4pfh3QH247GJO6inA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/hotSpot",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"hotSpot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "最热",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjlkNTk2YzE1LWM2MjEtNDgxZC1iNmVlLTQzZjdkMjgyNmZkOCJ9.f83ng-FPUcWfTEgYDuMrF45OHfiD3ZpFbV5o4rk1XWMdvLEfwreSMKhShfG3dxQ-n3-jTwQcc0saGYZlG1_kEw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"type\": \"1\",\r\n    \"pageNum\": \"1\",\r\n    \"pageSize\": \"10\",\r\n    \"timeStamp\": 34234353453\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/hotVideos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"hotVideos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "我的赞",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjFmYjAyMmM1LWEzNmUtNDFmYS1hYWRhLTVkOThmYWY1ZjBmZSJ9.du2QTbsh5mwgBxW3xHVn4WfyZr3CaD0Tcb7HGSzK3iY6zE7fcqFGqK5-v4cE73tizakrt4pfh3QH247GJO6inA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/myZan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"myZan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "我的评论",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjFmYjAyMmM1LWEzNmUtNDFmYS1hYWRhLTVkOThmYWY1ZjBmZSJ9.du2QTbsh5mwgBxW3xHVn4WfyZr3CaD0Tcb7HGSzK3iY6zE7fcqFGqK5-v4cE73tizakrt4pfh3QH247GJO6inA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/myComments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"myComments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "去我的评论或点赞评论",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImZlN2RhZTcyLTUyYmItNGI3Zi05YWJmLTMxZTU0NTU4Njc3NCJ9.69Hft2ET4XtPX2R3bQhYajjZirw9_S3lS4QMLfkQRKZZnH0NbIRgssM8Rq5BBDMZSUTWKZJXyLGnX0IWGh82wA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"videoId\": \"1\",\r\n    \"commentId\": \"30\",\r\n    \"type\": \"2\",\r\n    \"pageNum\": \"1\",\r\n    \"pageSize\": \"10\",\r\n    \"timeStamp\": 34234353453\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/toMyComments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"toMyComments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "系统消息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjlkNTk2YzE1LWM2MjEtNDgxZC1iNmVlLTQzZjdkMjgyNmZkOCJ9.f83ng-FPUcWfTEgYDuMrF45OHfiD3ZpFbV5o4rk1XWMdvLEfwreSMKhShfG3dxQ-n3-jTwQcc0saGYZlG1_kEw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pageNum\": \"1\",\r\n    \"pageSize\": \"10\",\r\n    \"timeStamp\": 34234353453\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/short/api/systemMessages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"short",
+								"api",
+								"systemMessages"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
