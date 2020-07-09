@@ -145,14 +145,14 @@
 					"script": {
 						"id": "74436c77-9802-4cd2-abae-ad81f924555a",
 						"exec": [
-							"pm.test(\"成功\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.msg).to.eql(\"操作成功\");\r",
-							"});\r",
+							"// pm.test(\"成功\", function () {\r",
+							"//     var jsonData2 = pm.response.json();\r",
+							"//     pm.expect(jsonData2.msg).to.eql(\"操作成功\");\r",
+							"// });\r",
 							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"// pm.test(\"Status code is 200\", function () {\r",
+							"//     pm.response.to.have.status(200);\r",
+							"// });"
 						],
 						"type": "text/javascript"
 					}
